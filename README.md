@@ -57,8 +57,8 @@ footer{background:#6b4f4f;color:white;text-align:center;padding:15px;margin-top:
 
 <div class="container" id="contact">
   <h2>Contact</h2>
-  <p>Email: contact@magazinulmeu.ro</p>
-  <p>Telefon: 07xx xxx xxx</p>
+  <p>Email: office.mikatrade@yahoo.com</p>
+  <p>Telefon: 0762 100 997</p>
 </div>
 
 <footer>
