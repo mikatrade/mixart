@@ -4,37 +4,97 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>MixArt – Magazin Online</title>
+
 <style>
-body{font-family:Arial,Helvetica,sans-serif;margin:0;background:#fafafa}
-header{background:#6b4f4f;color:white;padding:20px;text-align:center}
-nav{background:#e6d5d5;padding:10px;text-align:center}
-nav a{margin:0 15px;text-decoration:none;color:#333;font-weight:bold}
-.container{padding:20px;max-width:1100px;margin:auto}
-.products{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:20px}
-.card{background:white;border-radius:12px;box-shadow:0 2px 6px rgba(0,0,0,.15);padding:15px;text-align:center}
-.card img{width:100%;height:200px;object-fit:cover;border-radius:8px}
-button{background:#6b4f4f;color:white;border:none;padding:10px 15px;border-radius:8px;cursor:pointer;margin:6px}
-button:hover{background:#4a3434}
-#cart{position:fixed;right:20px;bottom:20px;background:white;padding:15px;border-radius:12px;box-shadow:0 4px 12px rgba(0,0,0,.2);width:260px}
-footer{background:#6b4f4f;color:white;text-align:center;padding:15px;margin-top:40px}
-.small-note{font-size:12px;opacity:.85;margin-top:6px}
+  body{font-family:Arial,Helvetica,sans-serif;margin:0;background:#fafafa}
+  header{background:#6b4f4f;color:white}
+  .topbar{
+    display:flex;align-items:center;justify-content:space-between;
+    padding:12px 18px;gap:12px
+  }
+  .brand{display:flex;align-items:center;gap:12px}
+  .brand img{height:48px;width:auto;display:block}
+  .brand .title{line-height:1.1}
+  .brand .title strong{display:block;font-size:18px}
+  .brand .title span{display:block;font-size:12px;opacity:.9}
+  nav{background:#e6d5d5;padding:10px;text-align:center}
+  nav a{margin:0 15px;text-decoration:none;color:#333;font-weight:bold}
+
+  .container{padding:20px;max-width:1100px;margin:auto}
+
+  /* HERO */
+  .hero-wrap{background:#fff}
+  .hero{
+    max-width:1100px;margin:0 auto;padding:18px 20px 6px 20px;
+  }
+  .hero img{
+    width:100%;height:auto;display:block;border-radius:14px;
+    box-shadow:0 6px 18px rgba(0,0,0,.12);
+  }
+
+  /* CATEGORII (TABURI) */
+  .category-bar{
+    max-width:1100px;margin:10px auto 0 auto;padding:0 20px 18px 20px;
+    text-align:center;
+  }
+  button{
+    background:#6b4f4f;color:white;border:none;padding:10px 15px;
+    border-radius:10px;cursor:pointer;margin:6px
+  }
+  button:hover{background:#4a3434}
+  .small-note{font-size:12px;opacity:.75;margin-top:6px}
+
+  /* PRODUSE */
+  .products{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:20px}
+  .card{background:white;border-radius:12px;box-shadow:0 2px 6px rgba(0,0,0,.15);padding:15px;text-align:center}
+  .card img{width:100%;height:200px;object-fit:cover;border-radius:8px}
+
+  /* COS */
+  #cart{
+    position:fixed;right:20px;bottom:20px;background:white;padding:15px;
+    border-radius:12px;box-shadow:0 4px 12px rgba(0,0,0,.2);width:260px
+  }
+
+  footer{background:#6b4f4f;color:white;text-align:center;padding:15px;margin-top:40px}
+
+  @media (max-width:600px){
+    .brand .title{display:none;} /* pe mobil ramane doar logo */
+    .brand img{height:42px}
+  }
 </style>
 </head>
+
 <body>
 <header>
-  <h1>MixArt – Magazin Online</h1>
-  <p>Produse sezoniere | Jucării | Decorațiuni | Papetărie | Petreceri | Pet Shop | Pachete Handmade/Cadouri</p>
+  <div class="topbar">
+    <div class="brand">
+      <!-- LOGO STANGA SUS -->
+      <img src="images/logo-mixart.png" alt="MixArt logo">
+      <div class="title">
+        <strong>MixArt</strong>
+        <span>Magazin online</span>
+      </div>
+    </div>
+    <div style="font-size:13px;opacity:.9;text-align:right">
+      Produse sezoniere · Jucării · Decorațiuni · Papetărie · Petreceri · Pet Shop · Cadouri
+    </div>
+  </div>
 </header>
+
 <nav>
   <a href="#produse">Produse</a>
   <a href="#contact">Contact</a>
 </nav>
 
-<div class="container" id="produse">
-  <h2>Produsele Noastre</h2>
+<!-- HERO (POZA DE PE PAGINA PRINCIPALA) -->
+<section class="hero-wrap">
+  <div class="hero">
+    <!-- Poza banner: urca in GitHub la images/hero.png -->
+    <img src="images/hero.png" alt="MixArt - Banner">
+  </div>
 
-  <!-- BUTOANE CATEGORII -->
-  <div style="text-align:center;margin-bottom:14px">
+  <!-- TABURI CATEGORII (bara cu categorii) -->
+  <div class="category-bar">
     <button onclick="showCategory('toate')">Toate</button>
     <button onclick="showCategory('sezoniere')">Produse sezoniere</button>
     <button onclick="showCategory('jucarii')">Jucării</button>
@@ -45,7 +105,10 @@ footer{background:#6b4f4f;color:white;text-align:center;padding:15px;margin-top:
     <button onclick="showCategory('cadouri')">Pachete Handmade/Cadouri</button>
     <div class="small-note">Apasă pe o categorie ca să filtrezi produsele.</div>
   </div>
+</section>
 
+<div class="container" id="produse">
+  <h2>Produsele Noastre</h2>
   <div class="products" id="product-list"></div>
 </div>
 
@@ -57,8 +120,8 @@ footer{background:#6b4f4f;color:white;text-align:center;padding:15px;margin-top:
 
 <div class="container" id="contact">
   <h2>Contact</h2>
-  <p>Email: office.mikatrade@yahoo.com</p>
-  <p>Telefon: 0762 100 997</p>
+  <p>Email: contact@magazinulmeu.ro</p>
+  <p>Telefon: 07xx xxx xxx</p>
 </div>
 
 <footer>
@@ -114,10 +177,7 @@ const total=document.getElementById("total");
 
 function renderProducts(filter="toate"){
   list.innerHTML="";
-
-  const filtered = (filter==="toate")
-    ? products
-    : products.filter(p => p.category === filter);
+  const filtered = (filter==="toate") ? products : products.filter(p => p.category === filter);
 
   filtered.forEach(p=>{
     const el=document.createElement("div");
@@ -130,9 +190,7 @@ function renderProducts(filter="toate"){
   });
 }
 
-function showCategory(cat){
-  renderProducts(cat);
-}
+function showCategory(cat){ renderProducts(cat); }
 
 function addToCart(id){
   const product=products.find(p=>p.id===id);
